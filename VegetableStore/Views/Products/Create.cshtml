@@ -1,0 +1,60 @@
+﻿@model VegetableStore.Models.Products
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(d => d.Name, new { @class = "form-control form-control-lg" })
+        @Html.ValidationMessageFor(d => d.Name)
+    </div>
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.Price, new { @class = "form-label" })
+        @Html.TextBoxFor(d => d.Price, new { @class = "form-control form-control-lg" })
+        @Html.ValidationMessageFor(d => d.Price)
+    </div>
+
+
+
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.Qunatity, new { @class = "form-label" })
+        @Html.TextBoxFor(d => d.Qunatity, new { @class = "form-control form-control-lg" })
+        @Html.ValidationMessageFor(d => d.Qunatity)
+    </div>
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.TotalPrice, new { @class = "form-label" })
+        @Html.TextBoxFor(d => d.TotalPrice, new { @class = "form-control form-control-lg" })
+        @Html.ValidationMessageFor(d => d.TotalPrice)
+    </div>
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.Discount, new { @class = "form-label" })
+        @Html.TextBoxFor(d => d.Discount, new { @class = "form-control form-control-lg" })
+        @Html.ValidationMessageFor(d => d.Discount)
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.PackId, new { @class = "form-label" })
+        @Html.DropDownListFor(d => d.PackId, new SelectList(ViewBag.Packsize, "Id", "PackSize"), "--Select--", new { @class = "form-select" })
+        @Html.ValidationMessageFor(d => d.PackId)
+    </div>
+    <div class="form-outline mb-4">
+        @Html.LabelFor(d => d.CategoryId, new { @class = "form-label" })
+        @Html.DropDownListFor(d => d.CategoryId, new SelectList(ViewBag.Categories, "Id", "CategoryName"), "--Select--", new { @class = "form-select" })
+        @Html.ValidationMessageFor(d => d.CategoryId)
+    </div>
+
+
+
+    <div class="d-flex justify-content-center">
+        <input type="submit" id="btnSubmit" class="btn btn-primary" value="Insert" />
+    </div>
+
+
+}
